@@ -1,7 +1,7 @@
 let currentNum = "";
 let previousNum = "";
 let sign = "";
- let answerShown=false
+let answerShown = false;
 let currentDisplayNumber = document.querySelector(".currentNumber");
 let previousDisplayNumber = document.querySelector(".previousNumber");
 
@@ -11,19 +11,18 @@ const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
   if (currentNum !== "" && previousNum !== "") {
     compute();
-  }else if(currentNum !=="" && previousNum =="" &&sign===""){
+  } else if (currentNum !== "" && previousNum == "" && sign === "") {
     currentDisplayNumber.textContent = currentNum;
+  } else {
+    currentDisplayNumber.textContent = "Empty Calculation !";
+    setTimeout(() => {
+      currentDisplayNumber.textContent = 0;
+    }, 2000);
   }
-  else{
-  currentDisplayNumber.textContent = "Empty Calculation !";
-  setTimeout(() => {
-    currentDisplayNumber.textContent = 0;
-  }, 2000);
-}
 });
 
-const fullAnswer=document.querySelector(".ans")
-fullAnswer.addEventListener("click",showAll)
+const fullAnswer = document.querySelector(".ans");
+fullAnswer.addEventListener("click", showAll);
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", clearAll);
 
@@ -40,6 +39,9 @@ function handleNumber(number) {
   if (previousNum !== "" && currentNum !== "" && sign === "") {
     previousNum = "";
     currentDisplayNumber.textContent = currentNum;
+  }
+  if (number == 0 && currentNum == 0) {
+    currentDisplayNumber.textContent = 0;
   }
   if (currentNum.length <= 11) {
     currentNum += number;
@@ -86,8 +88,8 @@ function compute() {
   } else if (sign === "/") {
     if (currentNum <= 0) {
       previousNum = "error";
-      displayResults()
-     return
+      displayResults();
+      return;
     }
     previousNum /= currentNum;
   }
@@ -105,14 +107,14 @@ function displayResults() {
   currentNum = "";
 }
 
-function showAll(){
-  if(answerShown!=true){
-    currentDisplayNumber.textContent = previousNum
-    answerShown=true
-}else{
-  currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
-  answerShown=false
-}
+function showAll() {
+  if (answerShown != true) {
+    currentDisplayNumber.textContent = previousNum;
+    answerShown = true;
+  } else {
+    currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
+    answerShown = false;
+  }
 }
 function clearAll() {
   currentNum = "";
