@@ -1,0 +1,58 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.clear{
+    background-color: red;
+    font-size: 20px;
+    border: 1px solid gray;
+    margin-top: 10px;
+    margin-left: -1px;
+}
+.ans{
+    font-size: 18px;
+    float: right;
+    margin-top: 10px;
+    
+}
+.number{
+    font-size: 20px;
+    margin: 5px;
+    margin-left: -1px;
+    padding: 7px;
+}
+.sign{
+margin: 5px;
+font-size: 20px;
+padding: 7px;
+width: 30px;
+height: 40px;
+text-align: center;
+
+}
+.output{
+    background-color: rgb(224, 205, 205);
+    padding: 10px;
+    font-size: larger;
+    font-weight: bold;
+}
+.calcBody{
+
+    background-color: rgb(92, 86, 86);
+    padding: 2em;
+}
+.equal{
+    font-size: 23px;
+    
+   margin: 5px;
+   height: 40px;
+}
+.decimal{
+    font-size: 20px;
+    height: 40px;
+    width: 30px;
+ 
+}
