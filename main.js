@@ -1,7 +1,7 @@
 let currentNum = "";
 let previousNum = "";
 let sign = "";
-
+ let answerShown=false
 let currentDisplayNumber = document.querySelector(".currentNumber");
 let previousDisplayNumber = document.querySelector(".previousNumber");
 
@@ -11,7 +11,7 @@ const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
   if (currentNum !== "" && previousNum !== "") {
     compute();
-  }else if(currentNum !=="" && previousNum ==""){
+  }else if(currentNum !=="" && previousNum =="" &&sign===""){
     currentDisplayNumber.textContent = currentNum;
   }
   else{
@@ -108,7 +108,13 @@ function displayResults() {
 }
 
 function showAll(){
+  if(answerShown!=true){
     currentDisplayNumber.textContent = previousNum
+    answerShown=true
+}else{
+  currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
+  answerShown=false
+}
 }
 function clearAll() {
   currentNum = "";
