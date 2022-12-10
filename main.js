@@ -85,11 +85,9 @@ function compute() {
     previousNum *= currentNum;
   } else if (sign === "/") {
     if (currentNum <= 0) {
-      previousNum = "NaN";
-      displayResults();
-      setTimeout(() => {
-        currentDisplayNumber.textContent = 0;
-      }, 2000);
+      previousNum = "error";
+      displayResults()
+     return
     }
     previousNum /= currentNum;
   }
